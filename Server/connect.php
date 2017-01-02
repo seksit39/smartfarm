@@ -4,7 +4,7 @@
 		$server="Localhost";
 		$user="root";
 		$pass="";
-		$db="test";
+		$db="smart farm";
 	   	
 		$connection = mysql_connect($server, $user, $pass);
 

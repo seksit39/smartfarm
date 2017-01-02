@@ -3,11 +3,16 @@
    	
    	$link=Connection();
 
-	$temp1=$_POST["temp1"];
-	$hum1=$_POST["hum1"];
+   $airHumi = $_POST["airHumi"];
+   $airTemp = $_POST["airTemp"];
+   $groundHumi = $_POST["groundHumi"];
+   $groundTemp = $_POST["groundTemp"];
+   $light = $_POST["light"];
+   $rain = $_POST["rain"];
 
-	$query = "INSERT INTO `templog` (`temperature`, `humidity`) 
-		VALUES ('".$temp1."','".$hum1."')"; 
+
+	$query = "INSERT INTO `seksu` (`airHumi`,`airTemp`,`groundHumi`,`groundTemp`,`light`,`rain`) 
+		VALUES ('".$airHumi."','".$airTemp."','".$groundHumi."','".$groundTemp."','".$light."','".$rain."')"; 
    	
    	mysql_query($query,$link);
 	mysql_close($link);
