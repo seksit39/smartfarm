@@ -1,6 +1,8 @@
 #include <ESP8266WiFi.h>
-const char* ssid = "OHMAMP";
-const char* password = "a029453745";
+const char*     ssid          = "OHMAMP";
+const char*     password      = "a029453745";
+const char*     serverAddress = "52.74.27.220";
+const uint16_t  serverPort    = 80;
 WiFiClient client;
 
 void setup() {
@@ -18,9 +20,10 @@ void setup() {
 
 void loop() {
   String data = "airHumi=6&airTemp=5&groundHumi=4&groundTemp=3&light=2&rain=1";
-  if (client.connect("192.168.1.41",80)) { // REPLACE WITH YOUR SERVER ADDRESS
+  if (client.connect(serverAddress,serverPort)) { // REPLACE WITH YOUR SERVER ADDRESS
     client.println("POST /add.php HTTP/1.1"); 
-    client.println("Host: 192.168.1.41"); // SERVER ADDRESS HERE TOO
+    client.print("Host: "); // SERVER ADDRESS HERE TOO
+    client.println(serverAddress);
     client.println("Content-Type: application/x-www-form-urlencoded"); 
     client.print("Content-Length: "); 
     client.println(data.length()); 
@@ -33,5 +36,5 @@ void loop() {
     client.stop();  // DISCONNECT FROM THE SERVER
   }
 
-  //delay(10000); // WAIT FIVE MINUTES BEFORE SENDING AGAIN
+  delay(10000); // WAIT FIVE MINUTES BEFORE SENDING AGAIN
 }
