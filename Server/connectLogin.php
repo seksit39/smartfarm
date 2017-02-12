@@ -5,8 +5,8 @@
 
 	$serverName	  = "localhost";
 	$userName	  = "root";
-	$userPassword = "";
-	$dbName	      = "smart farm";
+	$userPassword 	  = "12345678";
+	$dbName	          = "smart farm";
 
 	$con = mysqli_connect($serverName,$userName,$userPassword,$dbName);
 
