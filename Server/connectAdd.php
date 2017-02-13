@@ -3,7 +3,7 @@
 	function Connection(){
 		$server="localhost";
 		$user="root";
-		$pass="";
+		$pass="12345678";
 		$db="smart farm";
 	   	
 		$connection = mysql_connect($server, $user, $pass);
