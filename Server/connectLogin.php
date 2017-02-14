@@ -8,7 +8,8 @@
 	$userPassword 	  = "12345678";
 	$dbName	          = "smart farm";
 
-	$con = mysqli_connect($serverName,$userName,$userPassword,$dbName);
+	//$con = mysqli_connect($serverName,$userName,$userPassword,$dbName);
+	$con = mysqli_connect($_SERVER['RDS_HOSTNAME'], $_SERVER['RDS_USERNAME'], $_SERVER['RDS_PASSWORD'], $_SERVER['RDS_DB_NAME'], $_SERVER['RDS_PORT']);
 
 	if (mysqli_connect_errno())
 	{

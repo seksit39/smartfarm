@@ -1,5 +1,5 @@
 <?php
-   	include("connect.php");
+   	include("connectAdd.php");
    	
    	$link=Connection();
 

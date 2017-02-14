@@ -6,13 +6,15 @@
 		$pass="12345678";
 		$db="smart farm";
 	   	
-		$connection = mysql_connect($server, $user, $pass);
+		//$connection = mysqli_connect($server, $user, $pass);
 
-		if (!$connection) {
-	    	die('MySQL ERROR: ' . mysql_error());
-		}
-		
-		mysql_select_db($db) or die( 'MySQL ERROR: '. mysql_error() );
+		$connection = mysqli_connect($_SERVER['RDS_HOSTNAME'], $_SERVER['RDS_USERNAME'], $_SERVER['RDS_PASSWORD'], $_SERVER['RDS_DB_NAME'], $_SERVER['RDS_PORT']);
+
+	if (mysqli_connect_errno())
+	{
+		echo "Database Connect Failed : " . mysqli_connect_error();
+		exit();
+	}
 
 		return $connection;
 	}

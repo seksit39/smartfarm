@@ -4,7 +4,7 @@
 	
 	$link=Connection();
 
-	$result=mysql_query("SELECT * FROM `seksu` ORDER BY `time` DESC",$link);
+	$result=mysqli_query("SELECT * FROM `seksu` ORDER BY `time` DESC",$link);
 ?>
 
 <html>
@@ -27,7 +27,7 @@
 
       <?php 
 		  if($result!==FALSE){
-		     while($row = mysql_fetch_array($result)) {
+		     while($row = mysqli_fetch_array($result)) {
 		        printf("<tr><td> &nbsp;%s </td>
 		        	<td> &nbsp;%s&nbsp; </td>
 		        	<td> &nbsp;%s&nbsp; </td>
@@ -37,8 +37,8 @@
 		        	<td> &nbsp;%s&nbsp; </td></tr>", 
 		           $row["time"], $row["airHumi"], $row["airTemp"], $row["groundHumi"], $row["groundTemp"], $row["light"], $row["rain"]);
 		     }
-		     mysql_free_result($result);
-		     mysql_close();
+		     //mysql_free_result($result);
+		     //mysql_close();
 		  }
       ?>
 
