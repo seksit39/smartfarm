@@ -4,7 +4,7 @@
 	
 	$link=Connection();
 
-	$result=mysqli_query("SELECT * FROM `seksu` ORDER BY `time` DESC",$link);
+	$result=mysqli_query($link,"SELECT * FROM `seksu` ORDER BY `time` DESC");
 ?>
 
 <html>
